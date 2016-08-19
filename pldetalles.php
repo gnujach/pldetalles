@@ -30,7 +30,8 @@ function get_detail_openlink ($atts) {
 	var_dump( $attachment->ID);
 	//$funcionario_responsable = get_post_meta($attachment->ID, 'be_funcionario_responsable', true);
 	$datos = get_post_meta($attachment->ID);	
-	$num_visitas = get_post_meta( get_the_ID(), 'count_view', true );	
+	$num_visitas = get_post_meta( get_the_ID(), 'count_view', true );
+
 	if (isset($datos['be_depto_name'][0]))
 		$depto_responsable = $datos['be_depto_name'][0];
 	else
@@ -48,7 +49,8 @@ function get_detail_openlink ($atts) {
 			</button></a>
 			<div id="myModalDetalles"style="display:none">
 				<table class="table" id="tableDetalle'.$id.'">
-					<caption>Detalles de Archivo</caption>				
+					<caption>Detalles de Archivo</caption>
+					<tr><td>Nombre </td><td>'.get_the_title($id).'</tr>
 					<tr><td>Funcionario Resposable</td><td>'.$func_responsable.'</tr>
 					<tr><td>Dirección Resposable</td><td>'.$depto_responsable.'</tr>
 					<tr><td>Resposable de subir la información</td><td>'.$resp_subir_info.'</tr>
