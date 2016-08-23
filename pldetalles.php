@@ -26,8 +26,6 @@ function get_detail_openlink ($atts) {
     ), $atts ) );
 	//$attachment = get_post($idpost);
 	$attachment = get_post($id);
-	echo "<br />";
-	var_dump( $attachment->ID);
 	//$funcionario_responsable = get_post_meta($attachment->ID, 'be_funcionario_responsable', true);
 	$datos = get_post_meta($attachment->ID);	
 	$num_visitas = get_post_meta( get_the_ID(), 'count_view', true );
@@ -44,16 +42,16 @@ function get_detail_openlink ($atts) {
 		$resp_subir_info = $datos['transparencia_responsable'][0];
 	else
 		$resp_subir_info = "";
-	return '<a href="#tableDetalle'.$id.'" class="detalles'.$id.'"><button type="button">
+	return '<a href="#tableDetalle'.$id.'" class="detalles'.$id.'"><button type="button" class="btn-info btn-group">
 	  			Detalles
 			</button></a>
 			<div id="myModalDetalles"style="display:none">
 				<table class="table" id="tableDetalle'.$id.'">
 					<caption>Detalles de Archivo</caption>
 					<tr><td>Nombre </td><td>'.get_the_title($id).'</tr>
-					<tr><td>Funcionario Resposable</td><td>'.$func_responsable.'</tr>
-					<tr><td>Dirección Resposable</td><td>'.$depto_responsable.'</tr>
-					<tr><td>Resposable de subir la información</td><td>'.$resp_subir_info.'</tr>
+					<tr><td>Funcionario Responsable</td><td>'.$func_responsable.'</tr>
+					<tr><td>Dirección Responsable</td><td>'.$depto_responsable.'</tr>
+					<tr><td>Responsable de subir la información</td><td>'.$resp_subir_info.'</tr>
 					<tr><td>Tipo de Archivo</td><td>'.$attachment->post_mime_type.'</tr>
 					<tr><td>Tamaño de Archivo</td><td>'.size_format(filesize( get_attached_file($attachment->ID))).'</tr>
 					<tr><td>Fecha de Creación</td><td>'.get_the_date().'</tr>
